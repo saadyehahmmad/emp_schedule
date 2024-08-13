@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Schedule</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Employee Schedule</h1>
+        <!-- Date Range and Branch Selection -->
+        <div class="form-container">
+            <div class="input-field date-range-field">
+                <label class="input-label" for="dateRange">Date Range:</label>
+                <input type="date" id="startDate" class="select-box" onchange="handleStartDateChange()">
+                <input type="date" id="endDate" class="select-box" onchange="handleEndDateChange()" disabled>
+            </div>
+            <div class="input-field">
+                <label class="input-label" for="branchSelect">Select Branch:</label>
+                <select id="branchSelect" class="select-box">
+                    <option value="branch1">Sport City Branch(1)</option>
+                    <option value="branch2">Thaqafa Circle Branch(2)</option>
+                    <option value="branch3">Jamaa Street Branch(3)</option>
+                </select>
+            </div>
+
+        <div class="input-field">
+            <label class="input-label" for="offSupervisorA">SUPERVISOR A Off Day:</label>
+            <select id="offSupervisorA" onchange="updateAllOptions()" class="select-box">
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday" selected>Friday</option>
+            </select>
+        </div>
+        <div class="input-field">
+            <label class="input-label" for="offSeniorBaristaA">SENIOR BARISTA A Off Day:</label>
+            <select id="offSeniorBaristaA" class="select-box">
+                <option value="Saturday" selected>Saturday</option>
+                <option value="Sunday">Sunday</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday" >Friday</option>
+            </select>
+        </div>
+        <div class="input-field">
+            <label class="input-label" for="offSupervisorB">SUPERVISOR B Off Day:</label>
+            <select id="offSupervisorB" onchange="updateAllOptions()" class="select-box">
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday" selected>Friday</option>
+            </select>
+        </div>
+        <div class="input-field">
+            <label class="input-label" for="offSeniorBaristaB">SENIOR BARISTA B Off Day:</label>
+            <select id="offSeniorBaristaB" class="select-box">
+                <option value="Saturday" selected>Saturday</option>
+                <option value="Sunday">Sunday</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday" >Friday</option>
+            </select>
+        </div>
+    </div>
+
+    <button onclick="generateSchedule()" class="generate-btn">Generate Schedule</button>
+        <!-- Print Header -->
+        <div id="printHeader" class="print-header">
+            <div id="branchLine"></div>
+            <div id="dateRangeLine"></div>
+        </div>
+    <table id="scheduleTable" class="schedule-table">
+        <!-- Schedule table will be dynamically filled here -->
+    </table>
+
+    <!-- Ensure the script is loaded after the HTML content -->
+    <script src="schedule.js"></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+/* Import TS Qamus Font */
+@import url('https://fonts.googleapis.com/css2?family=Qamus&display=swap');
+
+/* CSS Variables for Coffee Theme Colors */
+:root {
+    --primary-color: #8B4513; /* Coffee brown for accents */
+    --secondary-color: #F5F5DC; /* Light beige for background */
+    --text-color: #4B3621; /* Dark brown text */
+    --border-color: #D2B48C; /* Tan for borders */
+    --hover-color: #A0522D; /* Sienna for hover effects */
+    --background-color: #FFF8DC; /* Cornsilk for card backgrounds */
+    --header-text-color: #3E2723; /* Rich brown for headers */
+}
+
+/* General Styles */
+body {
+    font-family: 'Qamus', serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+#printHeader{
+   display: none;
+}
+.instructions {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.instructions p {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 18px;
+}
+
+.instructions ul {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.input-field {
+    flex: 1 1 calc(50% - 20px);
+    display: flex;
+    flex-direction: column;
+}
+
+.input-label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--header-text-color);
+    font-size: 16px;
+}
+
+.select-box {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 16px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.select-box:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
+.generate-btn {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 12px 24px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--background-color);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.generate-btn:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.05);
+}
+
+.schedule-table {
+    width: 2000px;
+    border-collapse: collapse;
+    margin-top: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-table th, .schedule-table td {
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.schedule-table th {
+    background-color: var(--primary-color);
+    color: var(--header-text-color);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.schedule-table td.off {
+    color: #FF0000; /* Red color for emphasis */
+    font-weight: bold;
+}
+
+.schedule-table tr:nth-child(even) {
+    background-color: var(--secondary-color);
+}
+
+.schedule-table tr:hover {
+    background-color: #F5DEB3; /* Wheat color for row hover */
+    color: var(--header-text-color);
+}
+
+.schedule-table input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    font-size: 16px;
+    text-align: center;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.schedule-table input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: var(--background-color);
+}
+/* Print Styles */
+@media print {
+    @page {
+        size: landscape;
+        margin: 1cm;
+    }
+
+    body {
+        background-color: #FFF;
+        color: #000;
+        margin: 0;
+    }
+    .form-container ,.generate-btn{
+        display: none;
+    }
+    #printHeader{
+        display: block;
+        color:#000;
+    }
+    .print-header {
+        margin-bottom: 20px;
+        text-align: center;
+        color: #000;
+    }
+
+    .print-header div {
+        margin-bottom: 5px;
+        font-size: 18px;
+    }
+
+    .print-header strong {
+        font-weight: bold;
+    }
+
+    .schedule-table {
+        scale: 100%;
+        width: 100%;
+        max-width: 100%;
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+
+    .schedule-table th, .schedule-table td {
+        border: 1px solid #000;
+        color: #000;
+        padding: 5px;
+        font-size: 14px auto;
+    }
+
+    .schedule-table td.off {
+        color: #FF0000; /* Ensure 'OFF' is in red for print */
+        font-weight: bold;
+    }
+}
